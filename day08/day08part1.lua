@@ -1,4 +1,4 @@
-local input = io.open("input08.txt", "r"):read("*a")
+local input = io.open("input.txt", "r"):read("*a")
 
 local width = input:find("\n") - 1
 local height = #input / (width + 1)
@@ -8,43 +8,44 @@ local function get(x, y)
   return tonumber(input:sub(i, i))
 end
 
-local best = 0
+local count = 0
 
 for x = 0, width - 1 do
   for y = 0, height - 1 do
     local num = get(x, y)
-    local visibleUp = 0
+    local visibleUp = true
     for vy = y - 1, 0, -1 do
-      visibleUp = visibleUp + 1
       if get(x, vy) >= num then
+        visibleUp = false
         break
       end
     end
-    local visibleDown = 0
+    local visibleDown = true
     for vy = y + 1, height - 1 do
-      visibleDown = visibleDown + 1
       if get(x, vy) >= num then
+        visibleDown = false
         break
       end
     end
-    local visibleLeft = 0
+    local visibleLeft = true
     for vx = x - 1, 0, -1 do
-      visibleLeft = visibleLeft + 1
       if get(vx, y) >= num then
+        visibleLeft = false
         break
       end
     end
-    local visibleRight = 0
+    local visibleRight = true
     for vx = x + 1, width - 1 do
-      visibleRight = visibleRight + 1
       if get(vx, y) >= num then
+        visibleRight = false
         break
       end
     end
 
-    local total = visibleUp * visibleDown * visibleLeft * visibleRight
-    best = math.max(total, best)
+    if visibleUp or visibleDown or visibleLeft or visibleRight then
+      count = count + 1
+    end
   end
 end
 
-print(best)
+print(count)

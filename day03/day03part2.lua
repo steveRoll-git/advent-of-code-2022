@@ -1,4 +1,4 @@
-local input = io.open("input03.txt", "r")
+local input = io.open("input.txt", "r")
 
 local priorities = {}
 for i = ("a"):byte(), ("z"):byte() do

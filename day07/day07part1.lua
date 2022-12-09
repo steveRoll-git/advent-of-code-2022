@@ -1,4 +1,4 @@
-local input = io.open("input07.txt", "r")
+local input = io.open("input.txt", "r")
 
 local lines = input:lines("*l")
 

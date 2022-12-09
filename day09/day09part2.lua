@@ -6,7 +6,7 @@ local function sign(x)
 	return x < 0 and -1 or (x > 0 and 1 or 0)
 end
 
-local input = io.open("input09.txt", "r")
+local input = io.open("input.txt", "r")
 
 local directions = {
 	L = {x = -1, y = 0},

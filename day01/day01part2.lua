@@ -1,4 +1,4 @@
-local input = io.open("input01.txt", "r")
+local input = io.open("input.txt", "r")
 
 local count = 0
 local largest = {}

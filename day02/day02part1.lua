@@ -1,4 +1,4 @@
-local input = io.open("input02.txt", "r")
+local input = io.open("input.txt", "r")
 
 local score = 0
 

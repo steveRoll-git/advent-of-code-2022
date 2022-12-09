@@ -1,4 +1,4 @@
-local input = io.open("input05.txt", "r")
+local input = io.open("input.txt", "r")
 
 local numStacks = 9
 
@@ -33,8 +33,9 @@ for l in input:lines("*l") do
   amount = tonumber(amount)
   from = tonumber(from)
   to = tonumber(to)
+  local removeIndex = #stacks[from] - amount + 1
   for i = 1, amount do
-    local crate = table.remove(stacks[from])
+    local crate = table.remove(stacks[from], removeIndex)
     table.insert(stacks[to], crate)
   end
 

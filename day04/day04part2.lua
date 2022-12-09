@@ -1,4 +1,4 @@
-local input = io.open("input04.txt", "r")
+local input = io.open("input.txt", "r")
 
 local count = 0
 
@@ -8,7 +8,7 @@ for l in input:lines("*l") do
   a2 = tonumber(a2)
   b1 = tonumber(b1)
   b2 = tonumber(b2)
-  if (a1 >= a2 and b1 <= b2) or (a2 >= a1 and b2 <= b1) then
+  if a1 <= b2 and a2 <= b1 then
     count = count + 1
   end
 end
